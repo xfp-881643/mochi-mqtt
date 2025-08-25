@@ -10,6 +10,9 @@ import (
 	"github.com/mochi-mqtt/server/v2/listeners"
 )
 
+// replace github.com/mochi-mqtt/server/v2 => /mnt/works/github/server
+
+
 func Test_mochi(t *testing.T) {
 	// MQTT 서버 초기화
 	server := mqtt.New(&mqtt.Options{
