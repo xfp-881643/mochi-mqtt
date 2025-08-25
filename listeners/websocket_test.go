@@ -122,7 +122,7 @@ func TestWebsocketUpgrade(t *testing.T) {
 		return nil
 	}
 
-	s := httptest.NewServer(http.HandlerFunc(l.handler))
+	s := httptest.NewServer(http.HandlerFunc(l.Handler))
 	ws, _, err := websocket.DefaultDialer.Dial("ws"+strings.TrimPrefix(s.URL, "http"), nil)
 	require.NoError(t, err)
 	require.Equal(t, true, <-e)
@@ -152,7 +152,7 @@ func TestWebsocketConnectionReads(t *testing.T) {
 		return nil
 	}
 
-	s := httptest.NewServer(http.HandlerFunc(l.handler))
+	s := httptest.NewServer(http.HandlerFunc(l.Handler))
 	ws, _, err := websocket.DefaultDialer.Dial("ws"+strings.TrimPrefix(s.URL, "http"), nil)
 	require.NoError(t, err)
 

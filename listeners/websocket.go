@@ -78,7 +78,7 @@ func (l *Websocket) Init(log *slog.Logger) error {
 	l.log = log
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", l.handler)
+	mux.HandleFunc("/", l.Handler)
 	l.listen = &http.Server{
 		Addr:         l.address,
 		Handler:      mux,
@@ -91,7 +91,7 @@ func (l *Websocket) Init(log *slog.Logger) error {
 }
 
 // handler upgrades and handles an incoming websocket connection.
-func (l *Websocket) handler(w http.ResponseWriter, r *http.Request) {
+func (l *Websocket) Handler(w http.ResponseWriter, r *http.Request) {
 	c, err := l.upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		return
